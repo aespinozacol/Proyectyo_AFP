@@ -3,7 +3,6 @@ package com.afp.Proyectyo_AFP.model;
 import lombok.Data;
 
 import javax.persistence.*;
-
 @Data //Lombok
 @Entity //JPA
 @Table(name = "Customer") //JPA
@@ -27,6 +26,10 @@ public class Customer {
     @Column(name = "email", nullable = false, length = 70)
     private String email;
 
-    @Column(name = "id_afp", nullable = false)
-    private Integer id_afp;
+    @ManyToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name = "afp", referencedColumnName = "id")
+    //@Column(name = "id_afp", nullable = false)
+    private AFP afp;
+
+
 }

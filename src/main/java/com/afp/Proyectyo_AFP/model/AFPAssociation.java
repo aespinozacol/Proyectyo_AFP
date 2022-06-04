@@ -14,7 +14,6 @@ public class AFPAssociation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
     @Column(name = "amount_available", nullable = false)
     private Double amount_available;
 
@@ -25,4 +24,9 @@ public class AFPAssociation {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     @Column(name = "withdrawal_date", nullable = false)
     private Date withdrawal_date;
+
+    @OneToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name = "Customer", referencedColumnName = "id")
+    //@Column(name = "id_customer", nullable = false)
+    private Customer customer;
 }

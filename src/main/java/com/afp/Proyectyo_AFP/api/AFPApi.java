@@ -19,30 +19,34 @@ public class AFPApi {
 
     @GetMapping
     public ResponseEntity<List<AFP>> findAll(){
-        log.info("Aqui retorna la lista de AFPs");
+        log.info("List all AFPs");
         return ResponseEntity.ok(afpService.findAll());
     }
 
     @PostMapping //Post
     public ResponseEntity<AFP> create(@RequestBody AFP afp){
         AFP response = afpService.create(afp);
+        log.info("Create one AFP");
         return new ResponseEntity<AFP>(response, HttpStatus.CREATED);
     }
 
     @PutMapping //Post
     public ResponseEntity<AFP> update(@RequestBody AFP afp){
         AFP response = afpService.update(afp);
+        log.info("Update one AFP");
         return ResponseEntity.ok(response);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<AFP> findById(@PathVariable("id") long id){
+        log.info("Search for one AFP by id");
         return ResponseEntity.ok(afpService.findById(id));
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable("id") long id){
         afpService.delete(id);
+        log.info("Delete one AFP");
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 

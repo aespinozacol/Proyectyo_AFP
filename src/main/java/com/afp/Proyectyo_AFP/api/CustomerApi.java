@@ -19,30 +19,34 @@ public class CustomerApi {
 
     @GetMapping
     public ResponseEntity<List<Customer>> findAll(){
-        log.info("Aqui retorna la lista de clientes");
+        log.info("list all customers");
         return ResponseEntity.ok(customerService.findAll());
     }
 
     @PostMapping //Post
     public ResponseEntity<Customer> create(@RequestBody Customer customer){
         Customer response = customerService.create(customer);
+        log.info("Create one Customer");
         return new ResponseEntity<Customer>(response, HttpStatus.CREATED);
     }
 
     @PutMapping //Post
     public ResponseEntity<Customer> update(@RequestBody Customer customer){
         Customer response = customerService.update(customer);
+        log.info("Update one Customer");
         return ResponseEntity.ok(response);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Customer> findById(@PathVariable("id") long id){
+        log.info("Search for one Customer by id");
         return ResponseEntity.ok(customerService.findById(id));
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable("id") long id){
         customerService.delete(id);
+        log.info("Delete one Customer");
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }
