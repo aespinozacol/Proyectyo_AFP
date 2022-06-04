@@ -6,15 +6,12 @@ Primer proyecto de Java con Spring boot
 
 •	Se creo el proyecto con Spring Initializr en Maven con las siguientes dependencias: Rest Repositories, Spring Data JPA, Lombok, 
   PostgreSQL Driver y Spring Web(contiene el Tomcat)
-  
-•	El Luego se verificaron las dependencias en pom.xml
 
-•	En cada interfaz relacionada a cada clase se utilizo la sentencia @RepositoryRestResource, que mediante JPA crea los metodos API REST 
-  que luego se usaran en mis clases de implementacion.
+•	Mediante JPA se crearon los metodos API REST que luego se usaron en las clases de implementacion.
   
-•	Se utilizo JPA para crear desde el proyecto en Intellij, las tablas de la BD Postgres
+•	Tambien mediante JPA se crearon desde el proyecto en Intellij, las tablas de la BD Postgres
 
-•	Se utilizo Lombok para agregar al momento de ejecutar, los set y get de las clases relacionadas con las tablas.
+•	Con Lombok se agregaron los set y get de las clases relacionadas con las tablas.
 
 •	Se utilizo Log4j para los logs que registran la informacion en cada operacion del CRUD 
 
